@@ -1,24 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowRight, Leaf, FlaskConical, Heart, Sprout, ArrowUpRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Collection } from '@/components/shop/collection';
+import { productsOptions } from '@/lib/shopify';
+import { pageHead } from '@/lib/metadata';
+import hero from '@/assets/botanical-hero.jpg';
+import logo from '@/assets/aromas-dc-logo.png.asset.json';
+export const Route=createFileRoute('/')({head:()=>pageHead('Aromas DC | Perfumaria botânica','Perfumes naturais, botânicos e artesanais. Explore essências que celebram a natureza e o tempo de criar.'),loader:({context})=>context.queryClient.ensureQueryData(productsOptions),component:Index});
+function Index(){return <><section className="editorial-hero"><img className="hero-image" src={hero} alt="Frasco Aromas DC entre ramos de lavanda e eucalipto" width={1536} height={1024}/><div className="hero-copy"><p className="eyebrow"><span/> PERFUMARIA BOTÂNICA & ARTESANAL</p><h1>Aromas DC<span>A natureza,<br/>em sua essência.</span></h1><p>Perfumes que nascem da terra, florescem na pele<br className="desktop-break"/> e contam histórias. Naturais. Artesanais. Seus.</p><Button asChild className="hero-cta"><Link to="/fragrancias">Explorar a coleção <ArrowRight/></Link></Button><div className="hero-footnote"><span className="small-line"/>Feito à mão. Inspirado pela natureza.</div></div><div className="hero-caption">BOTÂNICA VIVA. PERFUMARIA COM ALMA.</div></section><div className="values-strip">{[{icon:Leaf,text:'100% natural'},{icon:Heart,text:'Vegano & sem crueldade'},{icon:FlaskConical,text:'Óleos essenciais puros'},{icon:Sprout,text:'Produção artesanal'}].map(v=><div key={v.text}><v.icon size={21}/><span>{v.text}</span></div>)}</div><Collection/><section className="nature-band"><div className="nature-image"><img src={hero} alt="Folhagens e óleos botânicos" loading="lazy"/><img className="nature-seal" src={logo.url} alt="Selo Aromas DC Artesanal"/></div><div className="nature-copy"><p className="eyebrow">PURO POR NATUREZA</p><h2>O que vem da terra,<br/>toca a alma.</h2><p>Folhas, flores, madeiras e raízes. A beleza da perfumaria está em respeitar cada ingrediente — e deixar a natureza ser protagonista.</p><Link to="/ingredientes" className="text-link">Conheça nossos ingredientes <ArrowUpRight size={18}/></Link></div></section><section className="slow-section"><Sprout size={29}/><p className="eyebrow">TEMPO É INGREDIENTE</p><h2>Não fazemos apenas perfumes.<br/>Cultivamos sensações.</h2><Link to="/nossa-historia" className="text-link">Nossa história <ArrowRight size={18}/></Link></section></>;}
