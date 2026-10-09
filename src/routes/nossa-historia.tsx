@@ -1,0 +1,5 @@
+import {createFileRoute,Link} from '@tanstack/react-router';
+import {ArrowRight} from 'lucide-react';
+import {pageHead} from '@/lib/metadata';
+import logo from '@/assets/aromas-dc-logo.png.asset.json';
+export const Route=createFileRoute('/nossa-historia')({head:()=>pageHead('Nossa história','Conheça a essência da Aromas DC Artesanal, uma marca de perfumaria natural e botânica.'),component:()=> <section className="story-page"><img src={logo.url} width={170} height={170} alt="Aromas DC Artesanal"/><p className="eyebrow">NATUREZA. TEMPO. INTENÇÃO.</p><h1>Uma essência.<br/>Muitas formas de sentir.</h1><p>A Aromas DC Artesanal é uma marca de perfumes naturais e botânicos. Nosso universo é feito de flores, folhas e essências — e da sensibilidade de transformar a natureza em fragrância.</p><p>Acreditamos no valor do artesanal, na pureza dos ingredientes e na beleza de respeitar o tempo.</p><Link to="/fragrancias" className="text-link">Explore nossas fragrâncias <ArrowRight size={18}/></Link></section>});
