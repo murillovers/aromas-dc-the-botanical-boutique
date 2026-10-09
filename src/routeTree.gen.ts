@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FamiliasOlfativasRouteImport } from './routes/familias-olfativas'
+import { Route as FragranciasRouteImport } from './routes/fragrancias'
+import { Route as IngredientesRouteImport } from './routes/ingredientes'
+import { Route as NossaHistoriaRouteImport } from './routes/nossa-historia'
+import { Route as ProductHandleRouteImport } from './routes/product.$handle'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FamiliasOlfativasRoute = FamiliasOlfativasRouteImport.update({
+  id: '/familias-olfativas',
+  path: '/familias-olfativas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FragranciasRoute = FragranciasRouteImport.update({
+  id: '/fragrancias',
+  path: '/fragrancias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IngredientesRoute = IngredientesRouteImport.update({
+  id: '/ingredientes',
+  path: '/ingredientes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NossaHistoriaRoute = NossaHistoriaRouteImport.update({
+  id: '/nossa-historia',
+  path: '/nossa-historia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductHandleRoute = ProductHandleRouteImport.update({
+  id: '/product/$handle',
+  path: '/product/$handle',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/familias-olfativas': typeof FamiliasOlfativasRoute
+  '/fragrancias': typeof FragranciasRoute
+  '/ingredientes': typeof IngredientesRoute
+  '/nossa-historia': typeof NossaHistoriaRoute
+  '/product/$handle': typeof ProductHandleRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/familias-olfativas': typeof FamiliasOlfativasRoute
+  '/fragrancias': typeof FragranciasRoute
+  '/ingredientes': typeof IngredientesRoute
+  '/nossa-historia': typeof NossaHistoriaRoute
+  '/product/$handle': typeof ProductHandleRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/familias-olfativas': typeof FamiliasOlfativasRoute
+  '/fragrancias': typeof FragranciasRoute
+  '/ingredientes': typeof IngredientesRoute
+  '/nossa-historia': typeof NossaHistoriaRoute
+  '/product/$handle': typeof ProductHandleRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/familias-olfativas'
+    | '/fragrancias'
+    | '/ingredientes'
+    | '/nossa-historia'
+    | '/product/$handle'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/familias-olfativas'
+    | '/fragrancias'
+    | '/ingredientes'
+    | '/nossa-historia'
+    | '/product/$handle'
+  id:
+    | '__root__'
+    | '/'
+    | '/familias-olfativas'
+    | '/fragrancias'
+    | '/ingredientes'
+    | '/nossa-historia'
+    | '/product/$handle'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FamiliasOlfativasRoute: typeof FamiliasOlfativasRoute
+  FragranciasRoute: typeof FragranciasRoute
+  IngredientesRoute: typeof IngredientesRoute
+  NossaHistoriaRoute: typeof NossaHistoriaRoute
+  ProductHandleRoute: typeof ProductHandleRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/familias-olfativas': {
+      id: '/familias-olfativas'
+      path: '/familias-olfativas'
+      fullPath: '/familias-olfativas'
+      preLoaderRoute: typeof FamiliasOlfativasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fragrancias': {
+      id: '/fragrancias'
+      path: '/fragrancias'
+      fullPath: '/fragrancias'
+      preLoaderRoute: typeof FragranciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ingredientes': {
+      id: '/ingredientes'
+      path: '/ingredientes'
+      fullPath: '/ingredientes'
+      preLoaderRoute: typeof IngredientesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nossa-historia': {
+      id: '/nossa-historia'
+      path: '/nossa-historia'
+      fullPath: '/nossa-historia'
+      preLoaderRoute: typeof NossaHistoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product/$handle': {
+      id: '/product/$handle'
+      path: '/product/$handle'
+      fullPath: '/product/$handle'
+      preLoaderRoute: typeof ProductHandleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FamiliasOlfativasRoute: FamiliasOlfativasRoute,
+  FragranciasRoute: FragranciasRoute,
+  IngredientesRoute: IngredientesRoute,
+  NossaHistoriaRoute: NossaHistoriaRoute,
+  ProductHandleRoute: ProductHandleRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
