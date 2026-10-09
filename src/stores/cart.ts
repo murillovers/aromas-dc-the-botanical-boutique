@@ -7,7 +7,7 @@ export const useCartStore=create<State>()(persist((set,get)=>{
  async function mutate(name:string,declarations:string,args:string,variables:Record<string,unknown>){
   if(get().busy)return;
   set({busy:true,error:null});
-  try{const data=await storefrontApiRequest<Record<string,Result>>(`mutation(${declarations}){${name}(${args}){cart{${cartFields}} userErrors{message}}}`,variables); const result=data[name];if(result.userErrors.length){const message=result.userErrors.map(e=>e.message).join(', ');if(/cart not found|does not exist/i.test(message))set({cart:null});throw new Error(message);}set({cart:result.cart});}
+   try{const data=await storefrontApiRequest<Record<string,Result>>(`mutation(${declarations}){${name}(${args}){cart{${cartFields}} userErrors{message}}}`,variables); const result=data[name];if(!result)throw new Error('Resposta inesperada da Shopify.');if(result.userErrors.length){const message=result.userErrors.map(e=>e.message).join(', ');if(/cart not found|does not exist/i.test(message))set({cart:null});throw new Error(message);}set({cart:result.cart});}
   catch(e){set({error:e instanceof Error?e.message:'Não foi possível atualizar sua sacola.'});}finally{set({busy:false});}
  }
  return {cart:null,busy:false,error:null,open:false,setOpen:open=>set({open}),
