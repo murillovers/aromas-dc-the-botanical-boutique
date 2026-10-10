@@ -170,3 +170,31 @@ body {font-family:var(--font-sans);letter-spacing:0} h1,h2,h3 {font-family:var(-
 .botanical-gallery__note{font-size:10px;color:var(--muted-foreground);margin-top:24px}
 @media(max-width:900px){.editorial-hero--botanical{min-height:510px;padding:35px 6%;gap:0}.editorial-hero--botanical .hero-copy h1 span{font-size:48px}.botanical-gallery__grid{gap:18px}.botanical-card .eyebrow{font-size:8px}}
 @media(max-width:600px){.editorial-hero--botanical{grid-template-columns:1fr;padding:30px 7% 40px;min-height:0;gap:12px}.editorial-hero--botanical:before{display:none}.editorial-hero--botanical .hero-copy{left:auto;right:auto;top:auto;grid-column:1;grid-row:1}.editorial-hero--botanical .hero-copy h1 span{font-size:43px}.editorial-hero--botanical .botanical-cutout--hero{grid-column:1;grid-row:2;width:100%;max-width:390px}.botanical-gallery{padding:10px 6% 42px}.botanical-gallery__grid{grid-template-columns:1fr;gap:32px;max-width:420px;margin:25px auto 0}.botanical-card--wood{margin-top:0}.botanical-card figcaption{padding-top:17px}.botanical-card h3{font-size:32px}.botanical-gallery__note{text-align:center}.editorial-hero--botanical .hero-caption{font-size:7px;bottom:16px}}
+
+/* A lightweight luminous texture; decoration never intercepts clicks. */
+.glowy-background{background-color:var(--background);background-image:url('/images/glowy-stars.svg'),radial-gradient(ellipse at 90% 8%,oklch(.87 .06 85 / .22),transparent 42%);background-size:600px 620px,100% 100%}
+.glowy-background .editorial-hero--botanical{background-color:transparent;background-image:radial-gradient(ellipse at 78% 48%,oklch(.89 .075 88 / .4),transparent 55%)}
+.botanical-cutout--hero::after{content:'';position:absolute;inset:0;pointer-events:none;background:url('/images/glowy-stars.svg') center / 100% 100%;animation:botanical-glow 7s ease-in-out infinite;opacity:.7}
+@keyframes botanical-glow{0%,100%{opacity:.35}50%{opacity:.85}}
+.inspiration-catalog{padding:64px 8%;background:radial-gradient(ellipse at 15% 50%,oklch(.9 .045 105 / .28),transparent 65%)}
+.inspiration-catalog .eyebrow{display:flex;align-items:center;gap:8px}
+.catalog-caption{font-size:9px;letter-spacing:2px;color:var(--primary)}
+.catalog-filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.catalog-filters button{min-height:44px;border-radius:999px;padding-inline:24px;font-size:12px}
+.catalog-count{font-size:11px;color:var(--muted-foreground);margin:18px 0}
+.inspiration-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.inspiration-card{min-width:0;border:1px solid var(--border);border-radius:100px 100px 12px 12px;background:var(--card);overflow:hidden;box-shadow:0 12px 36px oklch(.4 .03 85 / .05)}
+.inspiration-photo{position:relative;aspect-ratio:1;overflow:hidden;background:var(--secondary)}
+.inspiration-photo--bamboo{background:radial-gradient(ellipse,oklch(.86 .06 97),var(--background))}
+.inspiration-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.inspiration-card:hover .inspiration-photo img{transform:scale(1.035)}
+.inspiration-photo>span{position:absolute;left:18px;bottom:18px;background:var(--card);border-radius:999px;padding:7px 13px;font-size:10px;color:var(--primary)}
+.inspiration-info{padding:23px}.inspiration-info .eyebrow{font-size:9px;letter-spacing:1px}
+.inspiration-info h3{font-size:32px;line-height:1.2;margin:10px 0}
+.catalog-details{min-height:44px;padding:0;font-size:11px;color:var(--primary);gap:16px}
+.catalog-disclaimer{font-size:11px;color:var(--muted-foreground);line-height:1.7;margin-top:25px}
+.inspiration-dialog{width:calc(100% - 32px);max-height:90dvh;overflow-y:auto;border-radius:16px}
+.inspiration-dialog>img{width:100%;height:auto;max-height:42dvh;object-fit:contain;border-radius:10px;background:var(--secondary)}
+.inspiration-dialog>h2{font-size:30px}.inspiration-dialog>button:last-child{min-height:44px;min-width:44px;right:8px;top:8px;background:var(--card);display:grid;place-items:center;border-radius:50%;opacity:1}
+@media(max-width:900px){.inspiration-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.inspiration-catalog{padding-inline:6%}}
+@media(max-width:600px){.inspiration-catalog{padding:40px 6%}.inspiration-grid{grid-template-columns:1fr;max-width:420px;margin-inline:auto}.inspiration-card{border-radius:80px 80px 12px 12px}.catalog-caption{font-size:8px}.catalog-filters button{padding-inline:20px}.glowy-background{background-size:420px 434px,100% 100%}.inspiration-info{padding:20px}}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="620" viewBox="0 0 600 620">
+  <defs><radialGradient id="halo"><stop stop-color="#d0ad68" stop-opacity=".22"/><stop offset="1" stop-color="#d0ad68" stop-opacity="0"/></radialGradient><path id="star" d="M0-13 2.6-2.6 13 0 2.6 2.6 0 13-2.6 2.6-13 0-2.6-2.6Z"/></defs>
+  <g fill="url(#halo)"><circle cx="86" cy="105" r="40"/><circle cx="464" cy="312" r="50"/><circle cx="225" cy="525" r="35"/></g>
+  <g fill="#aa8747" opacity=".36"><use href="#star" transform="translate(86 105)"/><use href="#star" transform="translate(464 312) scale(.75)"/><use href="#star" transform="translate(225 525) scale(.5)"/></g>
+  <g fill="#bd9a59" opacity=".2"><circle cx="310" cy="50" r="1.7"/><circle cx="180" cy="302" r="1"/><circle cx="560" cy="540" r="2"/><circle cx="40" cy="430" r="1.2"/></g>
+</svg>
