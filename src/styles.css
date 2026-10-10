@@ -198,3 +198,29 @@ body {font-family:var(--font-sans);letter-spacing:0} h1,h2,h3 {font-family:var(-
 .inspiration-dialog>h2{font-size:30px}.inspiration-dialog>button:last-child{min-height:44px;min-width:44px;right:8px;top:8px;background:var(--card);display:grid;place-items:center;border-radius:50%;opacity:1}
 @media(max-width:900px){.inspiration-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.inspiration-catalog{padding-inline:6%}}
 @media(max-width:600px){.inspiration-catalog{padding:40px 6%}.inspiration-grid{grid-template-columns:1fr;max-width:420px;margin-inline:auto}.inspiration-card{border-radius:80px 80px 12px 12px}.catalog-caption{font-size:8px}.catalog-filters button{padding-inline:20px}.glowy-background{background-size:420px 434px,100% 100%}.inspiration-info{padding:20px}}
+
+/* Sculptural product presentation, shared by catalog and Shopify details. */
+button.inspiration-photo{display:block;width:100%;text-align:left;cursor:pointer;border:0;padding:0}
+button.inspiration-photo:focus-visible{outline:3px solid var(--primary);outline-offset:-5px}
+.inspiration-card--soap-eye{border-radius:150px 150px 16px 16px;border-color:oklch(.76 .055 246)}
+.inspiration-card--soap-massage{border-radius:36px 36px 100px 36px}
+.inspiration-card--soap-flower{border-radius:100px 24px 100px 24px}
+.product-stage{--stage-tint:oklch(.83 .065 110);min-width:0}
+.product-stage--soap-eye{--stage-tint:oklch(.82 .075 240)}
+.product-stage--soap-massage{--stage-tint:oklch(.83 .07 151)}
+.product-stage--soap-flower{--stage-tint:oklch(.8 .095 100)}
+.product-stage__viewport{position:relative;perspective:1000px;padding:8%;isolation:isolate;border-radius:24px;background:radial-gradient(ellipse at 50% 70%,var(--stage-tint),var(--background) 75%);touch-action:pan-y}
+.product-stage__viewport:focus-visible{outline:2px solid var(--primary);outline-offset:4px}
+.product-stage__halo{position:absolute;inset:8%;border:1px solid color-mix(in oklch,var(--primary) 20%,transparent);border-radius:50%;transform:rotateX(55deg) translateY(35%);pointer-events:none}
+.product-stage__entrance{animation:product-reveal .7s cubic-bezier(.2,.7,.2,1) both;transform-style:preserve-3d}
+.product-stage__frame{position:relative;transform-style:preserve-3d;transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .18s ease-out;box-shadow:12px 24px 36px oklch(.25 .025 110 / .18);border-radius:18px}
+.product-stage__frame>img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:18px;background:var(--card);user-select:none}
+.product-stage__shine{position:absolute;inset:0;background:linear-gradient(125deg,oklch(1 0 0 / .22),transparent 45%,oklch(1 0 0 / .08));border-radius:18px;pointer-events:none;transform:translateZ(2px)}
+.product-stage__signature{position:absolute;left:7%;bottom:5%;font-size:8px;letter-spacing:1.6px;background:var(--card);color:var(--primary);padding:9px 13px;border-radius:999px;transform:translateZ(22px);pointer-events:none}
+.product-stage__hint{font-size:10px!important;text-align:center;line-height:1.6!important;margin:16px 0 10px;color:var(--muted-foreground)}
+.product-stage__controls{display:flex;justify-content:center;gap:8px}.product-stage__controls button{min-width:44px;min-height:44px;font-size:11px}
+.inspiration-dialog--immersive{max-width:960px;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:center;gap:32px;padding:38px;background:var(--background)}
+.inspiration-dialog__copy{display:flex;flex-direction:column;align-items:flex-start;gap:22px;min-width:0}.inspiration-dialog__copy>h2{font-size:44px;font-weight:500;line-height:1.05}.inspiration-dialog__copy>p{line-height:1.9}.inspiration-dialog__copy>a{white-space:normal;height:auto;min-height:44px}
+@keyframes product-reveal{from{opacity:0;transform:perspective(1000px) rotateY(-22deg) rotateX(8deg) translateY(25px) scale(.9)}to{opacity:1;transform:perspective(1000px) rotateY(0) rotateX(0) translateY(0) scale(1)}}
+@media(max-width:700px){.inspiration-dialog--immersive{grid-template-columns:1fr;gap:22px;padding:44px 20px 24px}.inspiration-dialog__copy{gap:16px}.inspiration-dialog__copy>h2{font-size:34px}.product-stage__viewport{max-width:380px;margin-inline:auto}.product-stage__signature{font-size:7px;letter-spacing:1px}}
+@media(prefers-reduced-motion:reduce){.product-stage__frame,.product-stage__entrance{transform:none!important;animation:none!important;transition:none!important}}
